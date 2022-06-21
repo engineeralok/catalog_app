@@ -1,3 +1,4 @@
+import 'package:catalog_app/utils/routes.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatelessWidget {
@@ -6,58 +7,61 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-        child: Column(
-      children: [
-        Image.asset(
-          'assets/images/login.png',
-          fit: BoxFit.cover,
-        ),
-        const SizedBox(
-          height: 20,
-        ),
-        const Text(
-          'Welcome',
-          style: TextStyle(
-            fontSize: 22,
-            fontWeight: FontWeight.bold,
+        child: SingleChildScrollView(
+      child: Column(
+        children: [
+          Image.asset(
+            'assets/images/login.png',
+            fit: BoxFit.cover,
           ),
-        ),
-        const SizedBox(
-          height: 20,
-        ),
-        Padding(
-          padding: const EdgeInsets.symmetric(
-            vertical: 16,
-            horizontal: 32,
+          const SizedBox(
+            height: 20,
           ),
-          child: Column(
-            children: [
-              const TextField(
-                decoration: InputDecoration(
-                  labelText: 'Username',
-                  hintText: 'Enter your username',
+          const Text(
+            'Welcome',
+            style: TextStyle(
+              fontSize: 28,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(
+              vertical: 16,
+              horizontal: 32,
+            ),
+            child: Column(
+              children: [
+                const TextField(
+                  decoration: InputDecoration(
+                    labelText: 'Username',
+                    hintText: 'Enter your username',
+                  ),
                 ),
-              ),
-              const TextField(
-                obscureText: true,
-                decoration: InputDecoration(
-                  labelText: 'Password',
-                  hintText: 'Enter your password',
+                const TextField(
+                  obscureText: true,
+                  decoration: InputDecoration(
+                    labelText: 'Password',
+                    hintText: 'Enter your password',
+                  ),
                 ),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              ElevatedButton(
-                child: const Text('Login'),
-                onPressed: () {
-                  print('Hi alok');
-                },
-              ),
-            ],
-          ),
-        )
-      ],
+                const SizedBox(
+                  height: 20,
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, MyRoutes.homeRoute);
+                  },
+                  style: TextButton.styleFrom(minimumSize: const Size(100, 45)),
+                  child: const Text('Login'),
+                ),
+              ],
+            ),
+          )
+        ],
+      ),
     ));
   }
 }
