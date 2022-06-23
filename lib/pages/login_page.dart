@@ -11,102 +11,102 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   String name = "";
   bool changeButton = false;
+  final _formKey = GlobalKey<FormState>();
+
+  moveToHome(BuildContext context) async {
+    setState(() {
+      changeButton = true;
+    });
+    await Future.delayed(const Duration(seconds: 1));
+    await Navigator.pushNamed(context, MyRoutes.homeRoute);
+    setState(() {
+      changeButton = false;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Material(
         child: SingleChildScrollView(
-      child: Column(
-        children: [
-          Image.asset(
-            'assets/images/login.png',
-            fit: BoxFit.cover,
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          Text(
-            'Welcome $name',
-            style: const TextStyle(
-              fontSize: 28,
-              fontWeight: FontWeight.bold,
+      child: Form(
+        key: _formKey,
+        child: Column(
+          children: [
+            Image.asset(
+              'assets/images/hey.png',
+              fit: BoxFit.cover,
             ),
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(
-              vertical: 16,
-              horizontal: 32,
+            const SizedBox(
+              height: 20,
             ),
-            child: Column(
-              children: [
-                TextField(
-                  onChanged: (value) {
-                    name = value;
-                    setState(() {});
-                  },
-                  decoration: const InputDecoration(
-                    labelText: 'Username',
-                    hintText: 'Enter your username',
-                  ),
-                ),
-                const TextField(
-                  obscureText: true,
-                  decoration: InputDecoration(
-                    labelText: 'Password',
-                    hintText: 'Enter your password',
-                  ),
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                InkWell(
-                  onTap: () async {
-                    setState(() {
-                      changeButton = true;
-                    });
-                    await Future.delayed(const Duration(seconds: 1));
-                    Navigator.pushNamed(context, MyRoutes.homeRoute);
-                  },
-                  child: AnimatedContainer(
-                    duration: const Duration(seconds: 1),
-                    alignment: Alignment.center,
-                    height: 40,
-                    width: changeButton ? 40 : 100,
-                    decoration: BoxDecoration(
-                      color: Colors.deepPurple,
-                      // shape: changeButton?BoxShape.circle:BoxShape.rectangle,
-                      borderRadius:
-                          BorderRadius.circular(changeButton ? 50 : 6),
+            Text(
+              'Welcome $name',
+              style: const TextStyle(
+                fontSize: 28,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                vertical: 16,
+                horizontal: 32,
+              ),
+              child: Column(
+                children: [
+                  TextFormField(
+                    onChanged: (value) {
+                      name = value;
+                      setState(() {});
+                    },
+                    decoration: const InputDecoration(
+                      labelText: 'Username',
+                      hintText: 'Enter your username',
                     ),
-                    child: changeButton
-                        ? const Icon(
-                            Icons.done,
-                            color: Colors.white,
-                          )
-                        : const Text(
-                            'Login',
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 16,
-                              color: Colors.white,
-                            ),
-                          ),
                   ),
-                ),
-                // ElevatedButton(
-                //   onPressed: () {
-                //     Navigator.pushNamed(context, MyRoutes.homeRoute);
-                //   },
-                //   style: TextButton.styleFrom(minimumSize: const Size(100, 45)),
-                //   child: const Text('Login'),
-                // ),
-              ],
-            ),
-          )
-        ],
+                  TextFormField(
+                    obscureText: true,
+                    decoration: const InputDecoration(
+                      labelText: 'Password',
+                      hintText: 'Enter your password',
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Material(
+                    color: Colors.deepPurple,
+                    borderRadius: BorderRadius.circular(changeButton ? 50 : 6),
+                    child: InkWell(
+                      onTap: () => moveToHome(context),
+                      child: AnimatedContainer(
+                        duration: const Duration(seconds: 1),
+                        alignment: Alignment.center,
+                        height: 40,
+                        width: changeButton ? 40 : 100,
+                        child: changeButton
+                            ? const Icon(
+                                Icons.done,
+                                color: Colors.white,
+                              )
+                            : const Text(
+                                'Login',
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 16,
+                                  color: Colors.white,
+                                ),
+                              ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            )
+          ],
+        ),
       ),
     ));
   }
