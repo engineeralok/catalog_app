@@ -13,7 +13,7 @@ class _LoginPageState extends State<LoginPage> {
   bool changeButton = false;
   final _formKey = GlobalKey<FormState>();
 
-  moveToHome(BuildContext context) async {
+  moveToHome(BuildContext context) async{
     setState(() {
       changeButton = true;
     });

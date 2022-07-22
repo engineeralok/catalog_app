@@ -1,0 +1,52 @@
+{
+    "products": [
+        {
+            "id": 1,
+            "name": "iPhone 13 pro",
+            "desc": "iPhone 13th gen",
+            "color": "#33505a",
+            "price": 999,
+            "image": "https://m.media-amazon.com/images/I/61i8Vjb17SL._SL1500_.jpg"
+        },
+        {
+            "id": 2,
+            "name": "Pixel 6",
+            "desc": "Google pixel phone 6th generation",
+            "color": "#00ac51",
+            "price": 659,
+            "image": "https://m.media-amazon.com/images/I/61oQtjPpM-L._SL1500_.jpg"
+        },
+        {
+            "id": 3,
+            "name": "Mac Book Air M2",
+            "desc": "Mac book air 2nd Generation",
+            "color": "#e0bfae",
+            "price": 1119,
+            "image": "https://m.media-amazon.com/images/I/61L5QgPvgqL._SL1500_.jpg"
+        },
+        {
+            "id": 4,
+            "name": "iPhone 13 pro",
+            "desc": "iPhone 13th gen",
+            "color": "#33505a",
+            "price": 999,
+            "image": "https://m.media-amazon.com/images/I/61i8Vjb17SL._SL1500_.jpg"
+        },
+        {
+            "id": 5,
+            "name": "Pixel 6",
+            "desc": "Google pixel phone 6th generation",
+            "color": "#00ac51",
+            "price": 659,
+            "image": "https://m.media-amazon.com/images/I/61oQtjPpM-L._SL1500_.jpg"
+        },
+        {
+            "id": 6,
+            "name": "Mac Book Air M2",
+            "desc": "Mac book air 2nd Generation",
+            "color": "#e0bfae",
+            "price": 1119,
+            "image": "https://m.media-amazon.com/images/I/61L5QgPvgqL._SL1500_.jpg"
+        }
+    ]
+}
