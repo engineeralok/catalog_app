@@ -1,4 +1,3 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:convert';
 
 class CatalogModel {
@@ -6,70 +5,62 @@ class CatalogModel {
 }
 
 class Item {
-  final num id;
+  final int id;
   final String name;
   final String desc;
-  final String color;
   final num price;
+  final String color;
   final String image;
 
-  Item({
-    required this.id,
-    required this.name,
-    required this.desc,
-    required this.color,
-    required this.price,
-    required this.image,
-  });
+  Item(this.id, this.name, this.desc, this.price, this.color, this.image);
 
   Item copyWith({
-    num? id,
+    int? id,
     String? name,
     String? desc,
-    String? color,
     num? price,
+    String? color,
     String? image,
   }) {
     return Item(
-      id: id ?? this.id,
-      name: name ?? this.name,
-      desc: desc ?? this.desc,
-      color: color ?? this.color,
-      price: price ?? this.price,
-      image: image ?? this.image,
+      id ?? this.id,
+      name ?? this.name,
+      desc ?? this.desc,
+      price ?? this.price,
+      color ?? this.color,
+      image ?? this.image,
     );
   }
 
   Map<String, dynamic> toMap() {
-    return <String, dynamic>{
+    return {
       'id': id,
       'name': name,
       'desc': desc,
-      'color': color,
       'price': price,
+      'color': color,
       'image': image,
     };
   }
 
   factory Item.fromMap(Map<String, dynamic> map) {
     return Item(
-      id: map['id'] as num,
-      name: map['name'] as String,
-      desc: map['desc'] as String,
-      color: map['color'] as String,
-      price: map['price'] as num,
-      image: map['image'] as String,
+      map['id'],
+      map['name'],
+      map['desc'],
+      map['price'],
+      map['color'],
+      map['image'],
     );
   }
 
   String toJson() => json.encode(toMap());
 
-  factory Item.fromJson(String source) =>
-      Item.fromMap(json.decode(source) as Map<String, dynamic>);
+  factory Item.fromJson(String source) => Item.fromMap(json.decode(source));
 
   @override
   String toString() {
-    return 'Item(id: $id, name: $name, desc: $desc, color: $color, price: $price, image: $image)';
+    return 'Item(id: $id, name: $name, desc: $desc, price: $price, color: $color, image: $image)';
   }
 
   @override
@@ -80,8 +71,8 @@ class Item {
         other.id == id &&
         other.name == name &&
         other.desc == desc &&
-        other.color == color &&
         other.price == price &&
+        other.color == color &&
         other.image == image;
   }
 
@@ -90,8 +81,28 @@ class Item {
     return id.hashCode ^
         name.hashCode ^
         desc.hashCode ^
-        color.hashCode ^
         price.hashCode ^
+        color.hashCode ^
         image.hashCode;
   }
 }
+
+// factory Item.fromMap(Map<String, dynamic> map) {
+//     return Item(
+//       id: map["id"],
+//       name: map["name"],
+//       desc: map["desc"],
+//       price: map["price"],
+//       color: map["color"],
+//       image: map["image"],
+//     );
+//   }
+
+//   toMap() => {
+//         "id": id,
+//         "name": name,
+//         "desc": desc,
+//         "price": price,
+//         "color": color,
+//         "image": image,
+//       };
