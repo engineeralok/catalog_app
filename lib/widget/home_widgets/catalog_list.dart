@@ -27,9 +27,7 @@ class CatalogItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return VxBox(
-    
       child: Row(
-      
         children: [
           const CatalogImage(
             image:
@@ -40,12 +38,7 @@ class CatalogItem extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                "Iphone 12 Pro "
-                    .text
-                    .lg
-                    .color(MyTheme.darkBluishColor)
-                    .bold
-                    .make(),
+                "Iphone 12 Pro ".text.lg.bold.make(),
                 "iPhone 12 Pro 12th Generation"
                     .text
                     .textStyle(context.captionStyle)
@@ -72,6 +65,6 @@ class CatalogItem extends StatelessWidget {
           )
         ],
       ),
-    ).white.rounded.square(150).make().py(16);
+    ).white.color(context.cardColor).rounded.square(150).make().py(16);
   }
 }
